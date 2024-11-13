@@ -1,48 +1,36 @@
 // Mock Data 
-balance = 5000;
+let balance = 5000;
 const transactionHistory = ['Deposited 10000 into Savings Account', 'Withdrawn 5000 from Savings Account'];
 
 function getBalance() {
-
-        // Function to return the current balance
-
+    // Function to return the current balance
     return balance;
-
-    
 }
 
 function deposit(amount) {
-
-        // Function to deposit money into the account
-
-    balance += amount
-    console.log('Deposited ${amount}');
-    transactionHistory.push('Deposited ${amount} into Savings Account');
-
+    // Function to deposit money into the account
+    balance += amount;
+    console.log(`Deposited ${amount}`);
+    transactionHistory.push(`Deposited ${amount} into Savings Account`);
 }
 
 function withdraw(amount) {
-
-            // Function to withdraw money from the account
-
-    if (balance<amount){
-    return ("You don't have enough money in an account to withdraw");
-    }else{
-            balance -= amount
-            console.log('Withdrawed ${amount}');
-            transactionHistory.push('Withdrawed ${amount} from Savings Account');
-        }
-
+    // Function to withdraw money from the account
+    if (balance < amount) {
+        return "You don't have enough money in the account to withdraw";
+    } else {
+        balance -= amount;
+        console.log(`Withdrawn ${amount}`);
+        transactionHistory.push(`Withdrawn ${amount} from Savings Account`);
+    }
 }
 
 function getTransactionHistory() {
-   //Using Array.prototype.join() with Preformatted Array Elements
-
+    // Using Array.prototype.join() with preformatted array elements
     const formattedTransactions = transactionHistory.map((transaction, index) => {
         return `${index + 1}) ${transaction}`;
     });
     return 'Transaction History\n' + formattedTransactions.join('\n');
-    
 }
 
 // Instructor's test cases
